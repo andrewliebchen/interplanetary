@@ -1,0 +1,27 @@
+<head>
+  <title>Mars Chat</title>
+</head>
+
+<body>
+  {{> messages}}
+</body>
+
+<template name="messages">
+  <section class="messages">
+    {{#each messages}}
+      <div class="message" data-location="{{location}}">
+        <div class="message-sender">{{name}}</div>
+        <div class="message-content">
+          {{message}}
+        </div>
+      </div>
+    {{/each}}
+    {{> newMessage}}
+  </section>
+</template>
+
+<template name="newMessage">
+  <div class="message-add">
+    <input type="text" id="new_message" placeholder="Your message">
+  </div>
+</template>
