@@ -8,6 +8,7 @@
 
 <template name="messages">
   <section class="messages">
+    <p>Current distance to Mars is {{distance}}</p>
     {{#each messages}}
       <div class="message" data-location="{{location}}">
         <div class="message-sender">{{name}}</div>

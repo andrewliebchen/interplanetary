@@ -1,12 +1,17 @@
 Messages = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
+
   Session.setDefault('currentUserName', 'Anonymous');
   Session.setDefault('currentUserLocation', 'Earth');
 
   Template.messages.messages = function() {
     return Messages.find({}, {sort: {time: -1}});
-  }
+  };
+
+  Template.messages.distance = function() {
+    return distance();
+  };
 
   Template.newMessage.events({
     'keydown #new_message' : function(event) {
