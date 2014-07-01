@@ -3,8 +3,20 @@
 </head>
 
 <body>
+  {{> signIn}}
   {{> messages}}
 </body>
+
+<template name="signIn">
+  <section class="sign-in">
+    <input type="text" id="first_name" placeholder="Your first name">
+    <fieldset id="location">
+      <label><input type="radio" name="planet" value="Earth">Earth</label>
+      <label><input type="radio" name="planet" value="Mars">Mars</label>
+    </fieldset>
+    <button id="sign_in_submit">Get started</button>
+  </section>
+</template>
 
 <template name="messages">
   <section class="messages">

@@ -23,6 +23,14 @@ if (Meteor.isClient) {
     return earthMarsLatency();
   };
 
+  Template.signIn.events({
+    'click #sign_in_submit' : function(event) {
+      var $this = $(event.target);
+      Session.set('currentUserName', $('#first_name').val());
+      Session.set('currentUserLocation', $('#location input:checked').val());
+    }
+  });
+
   Template.newMessage.events({
     'keydown #new_message' : function(event) {
       if(event.which == 13) {
