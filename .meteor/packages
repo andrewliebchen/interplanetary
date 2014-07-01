@@ -7,3 +7,6 @@ standard-app-packages
 autopublish
 insecure
 jquery
+scss
+bourbon
+normalize.css
