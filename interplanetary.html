@@ -3,38 +3,14 @@
 </head>
 
 <body>
-  {{> signIn}}
-  {{> messages}}
+  Current latency between Mars and Earth is {{latency}} minutes.
+  {{> distance}}
 </body>
 
-<template name="signIn">
-  <section class="sign-in">
-    <input type="text" id="first_name" placeholder="Your first name">
-    <fieldset id="location">
-      <label><input type="radio" name="planet" value="Earth">Earth</label>
-      <label><input type="radio" name="planet" value="Mars">Mars</label>
-    </fieldset>
-    <button id="sign_in_submit">Get started</button>
-  </section>
-</template>
-
-<template name="messages">
-  <section class="messages">
-    <p>Current distance to Mars is {{latency}} minutes</p>
-    {{#each messages}}
-      <div class="message" data-location="{{location}}">
-        <div class="message-sender">{{name}}</div>
-        <div class="message-content">
-          {{message}}
-        </div>
-      </div>
-    {{/each}}
-    {{> newMessage}}
-  </section>
-</template>
-
-<template name="newMessage">
-  <div class="message-add">
-    <input type="text" id="new_message" placeholder="Your message">
+<template name="distance">
+  <div class="distance">
+    <div class="mars"></div>
+    <div class="earth"></div>
+    <div class="marker"></div>
   </div>
 </template>
