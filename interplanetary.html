@@ -3,14 +3,6 @@
 </head>
 
 <body>
-  Current latency between Mars and Earth is {{latency}} minutes.
-  {{> distance}}
+  A message sent from Mars right now will arrive {{latency}} (that's {{travelTime}} minutes from now).
 </body>
 
-<template name="distance">
-  <div class="distance">
-    <div class="mars"></div>
-    <div class="earth"></div>
-    <div class="marker"></div>
-  </div>
-</template>

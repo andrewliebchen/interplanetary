@@ -7,6 +7,6 @@ standard-app-packages
 autopublish
 insecure
 jquery
-scss
-bourbon
-normalize.css
+fourseven:scss
+mrt:moment
+
