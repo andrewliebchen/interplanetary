@@ -4,5 +4,13 @@
 
 <body>
   A message sent from Mars right now will arrive {{latency}} (that's {{travelTime}} minutes from now).
+  {{> message}}
 </body>
+
+<template name="message">
+  <div>
+    {{status}}
+    <button class="send-message">Send message</button>
+  </div>
+</template>
 
