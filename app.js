@@ -1,3 +1,5 @@
+var testLatency = 5000;
+
 Messages = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
@@ -13,27 +15,29 @@ if (Meteor.isClient) {
 
   Template.message.helpers({
     'status': function() {
-      var currentMessage = Messages.find({}).fetch();
-      console.log(currentMessage.slice(1));
-      if(moment() == currentMessage.createdAt) {
-        return "Arrived!";
-      } else {
-        return "In transit";
-      }
+
     }
   });
 
   Template.message.events({
     'click .send-message': function(){
-      var now = moment();
-      Messages.insert({
-        message: "Hello world!",
-        timestamp: now
-      })
+      Meteor.call('sendMessage', 'Hello earth!');
     }
   });
 }
 
 if (Meteor.isServer) {
+  Meteor.methods({
+    'sendMessage': function(messageContent) {
+      // latency = earthMarsLatency() * 60000;
+      var latency = testLatency;
 
+      Meteor.setTimeout(function(){
+        Messages.insert({
+          content: messageContent
+        });
+        console.log(messageContent);
+      }, latency);
+    }
+  });
 }
