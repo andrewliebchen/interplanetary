@@ -1,16 +1,8 @@
 <head>
-  <title>Mars Chat</title>
+  <title>Tweet from Mars</title>
 </head>
 
 <body>
-  A message sent from Mars right now will arrive {{latency}} (that's {{travelTime}} minutes from now).
-  {{> message}}
+  <div id="content"></div>
 </body>
-
-<template name="message">
-  <div>
-    {{status}}
-    <button class="send-message">Send message</button>
-  </div>
-</template>
 
