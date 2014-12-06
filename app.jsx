@@ -20,10 +20,12 @@ var App = React.createClass({
     return (
       <div className="wrapper">
         <div className="headline">
-          <h1>Tweet from Mars</h1>
-          <h2>Currently it takes {this.state.travelTime} for a message to travel between Mars and the Earth.</h2>
-          <h2>If you send your tweet now, it will be posted on Twitter {this.state.arrivalTime}</h2>
-          <button className="call-to-action">Log in with Twitter</button>
+          <h1 classNam="headline__main">Tweet from Mars</h1>
+          <div className="headline__sub">
+            <h2>Currently it takes {this.state.travelTime} for a message to travel between Mars and the Earth.</h2>
+            <h2>If you send your tweet now, it will be posted on Twitter {this.state.arrivalTime}</h2>
+          </div>
+          <button className="headline__button">Log in with Twitter</button>
         </div>
         <div className="mars" />
         <footer className="footer">

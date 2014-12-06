@@ -10,4 +10,7 @@ jquery
 fourseven:scss
 mrt:moment
 mrt:react
+ciara:bourbon
+stevezhu:normalize.scss
+mrt:normalize.css
 

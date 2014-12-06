@@ -1,6 +1,74 @@
+@import "packages/bourbon/bourbon";
+
 $green: #abf6d5;
 $red:   #f48879;
 
 $purple-dark:  #201d2a;
 $purple-mid:   #7f75a7;
-$purble-light: #e7e0ee;
+$purple-light: #e7e0ee;
+
+$font-size: 18;
+
+* {
+  @include box-sizing(border-box);
+}
+
+html,
+body {
+  font-family: $helvetica;
+  line-height: 1.5;
+  font-size: #{font-size}px;
+  background-color: $purple-dark;
+  color: $purple-light;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: em(72, $font-size);
+}
+
+h2 {
+  font-weight: 100;
+  color: $purple-mid;
+  font-size: em(32, $font-size);
+}
+
+button {
+  @include appearance(none);
+  border: 0;
+  background-color: transparent;
+  background-image: none;
+  padding: 0 1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.wrapper {
+  padding: 3em;
+}
+
+.headline {
+  text-align: center;
+}
+
+.headline__sub {
+  margin: 2em 0;
+}
+
+.headline__button {
+  border: 1px solid;
+  font-size: em(24, $font-size);
+  line-height: 2.5;
+  color: $green;
+
+  &:hover {
+    background-color: $green;
+    color: $purple-dark;
+  }
+}

@@ -8,6 +8,7 @@ blaze@2.0.3
 boilerplate-generator@1.0.1
 callback-hook@1.0.1
 check@1.0.2
+ciara:bourbon@3.1.8
 ctl-helper@1.0.4
 ctl@1.0.2
 ddp@1.0.11
@@ -15,7 +16,7 @@ deps@1.0.5
 ejson@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
-fourseven:scss@1.0.0
+fourseven:scss@0.9.5
 geojson-utils@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -34,6 +35,7 @@ minimongo@1.0.5
 mobile-status-bar@1.0.1
 mongo@1.0.8
 mrt:moment@2.8.1
+mrt:normalize.css@2.0.1
 mrt:react@0.0.3
 observe-sequence@1.0.3
 ordered-dict@1.0.1
@@ -47,6 +49,8 @@ session@1.0.4
 spacebars-compiler@1.0.3
 spacebars@1.0.3
 standard-app-packages@1.0.3
+stevezhu:normalize.scss@1.1.2
+stevezhu:sass@1.2.2
 templating@1.0.9
 tracker@1.0.3
 ui@1.0.4
