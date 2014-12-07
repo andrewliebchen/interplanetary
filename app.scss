@@ -31,6 +31,25 @@ $transit-transition: 0.5s ease-in;
   }
 }
 
+@include keyframes(warp) {
+  0% {
+    @include transform(translateX(0));
+  }
+  50% {
+    @include transform(translateX(-1000%));
+  }
+  51% {
+    opacity: 0;
+  }
+  52% {
+    @include transform(translateX(1000%));
+    opacity: 1;
+  }
+  100% {
+    @include transform(translateX(0));
+  }
+}
+
 html,
 body {
   background-color: $purple-dark;
@@ -214,6 +233,8 @@ button {
   }
 
   .in-transit & {
+    @include animation(warp 3s linear 0.5s infinite);
+
     &.small {
       $width: 500px;
       width: $width;
@@ -227,7 +248,7 @@ button {
     }
 
     &.large {
-      $width: 50px;
+      $width: 100px;
       width: $width;
       margin-left: -($width);
     }
