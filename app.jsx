@@ -6,12 +6,12 @@ Messages = new Meteor.Collection('messages');
 
 var testLatency = 5000;
 
-// var CSSTransitionGroup = React.addons.CSSTransitionGroup;
+// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var App = React.createClass({
-  mixins: [Meteor.Mixin],
+  mixins: [ReactMeteor.Mixin],
 
-  getInitialState: function() {
+  getMeteorState: function() {
     return {
       travelTime:  moment(earthMarsLatency(), 'minutes').format('m:ss'),
       arrivalTime: moment().add(earthMarsLatency(), 'minutes').calendar()
@@ -29,9 +29,7 @@ var App = React.createClass({
           </div>
           <button className="headline__button">Log in with Twitter</button>
         </div>
-        <CSSTransitionGroup transitionName="mars">
-          <div className="mars" />
-        </CSSTransitionGroup>
+        <div className="mars" />
         <footer className="footer">
           <a>Huh?</a>
         </footer>

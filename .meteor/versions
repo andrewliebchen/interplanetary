@@ -36,10 +36,10 @@ mobile-status-bar@1.0.1
 mongo@1.0.8
 mrt:moment@2.8.1
 mrt:normalize.css@2.0.1
-mrt:react@0.0.3
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 random@1.0.1
+react@0.0.0
 reactive-dict@1.0.4
 reactive-var@1.0.3
 reload@1.1.1
