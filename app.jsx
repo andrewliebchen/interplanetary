@@ -24,6 +24,10 @@ var App = React.createClass({
     this.setState({showTwitterPost: !this.state.showTwitterPost});
   },
 
+  handleTwitterPost: function() {
+    this.setState({inTransit: !this.state.inTransit});
+  },
+
   render: function() {
     return (
       <div className="wrapper">
@@ -40,7 +44,10 @@ var App = React.createClass({
           : null}
         </div>
         {this.state.showTwitterPost ?
-          <TwitterPost arrivalTime={this.state.arrivalTime} />
+          <TwitterPost
+            arrivalTime={this.state.arrivalTime}
+            inTransit={this.state.inTransit}
+            handleTwitterPost={this.handleTwitterPost} />
         : null}
         {!this.state.inTransit ?
           <div className="mars" />
@@ -56,18 +63,32 @@ var App = React.createClass({
 var TwitterPost = React.createClass({
   render: function() {
     return (
-      <div className="twitter-post">
+      <div className={this.props.inTransit ? 'twitter-post in-transit' : 'twitter-post'}>
         <header className="twitter-post__header">
-          <h3>What's happening on Mars @andrewliebchen?</h3>
+          {!this.props.inTransit ?
+            <h3>What's happening on Mars @andrewliebchen?</h3>
+          :
+            <h3>Your tweet arrives in...</h3>
+          }
         </header>
-        <textarea className="twitter-post__message"
-          defaultValue="This tweet was sent from Mars 15 minutes ago! #TweetFromMars" />
-        <footer className="twitter-post__footer">
-          <p className="twitter-post__notice">Your Tweet will be posted at {this.props.arrivalTime}</p>
-          <button className="twitter-post__button">
-            Transmit!
-          </button>
-        </footer>
+        {!this.props.inTransit ?
+          <div>
+            <textarea className="twitter-post__message"
+              defaultValue="This tweet was sent from Mars 15 minutes ago! #TweetFromMars" />
+            <footer className="twitter-post__footer">
+              <p className="twitter-post__notice">Your Tweet will be posted at {this.props.arrivalTime}</p>
+              <button className="twitter-post__button" onClick={this.props.handleTwitterPost}>
+                Transmit!
+              </button>
+            </footer>
+          </div>
+        :
+          <div className="twitter-post__countdown">
+            15
+            <span className="twitter-post__colon">:</span>
+            00
+          </div>
+        }
       </div>
     );
   }
