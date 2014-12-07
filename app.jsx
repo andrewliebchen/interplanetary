@@ -14,7 +14,8 @@ var App = React.createClass({
   getMeteorState: function() {
     return {
       travelTime:  moment(earthMarsLatency(), 'minutes').format('m:ss'),
-      arrivalTime: moment().add(earthMarsLatency(), 'minutes').calendar()
+      arrivalTime: moment().add(earthMarsLatency(), 'minutes').calendar(),
+      inTransit:   null
     };
   },
 
@@ -29,7 +30,9 @@ var App = React.createClass({
           </div>
           <button className="headline__button">Log in with Twitter</button>
         </div>
-        <div className="mars" />
+        {!this.state.inTransit ?
+          <div className="mars" />
+        : null}
         <footer className="footer">
           <a>Huh?</a>
         </footer>
