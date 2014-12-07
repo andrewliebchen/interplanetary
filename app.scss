@@ -1,4 +1,4 @@
-@import "packages/bourbon/bourbon";
+@import ".meteor/local/build/programs/server/assets/packages/wolves_bourbon/bourbon";
 
 $green: #abf6d5;
 $red:   #f48879;
@@ -30,6 +30,7 @@ body {
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
   padding: 0;
@@ -72,7 +73,7 @@ button {
 .headline {
   position: relative;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .headline__sub {
@@ -94,16 +95,57 @@ button {
 
 .mars {
   $size: 50vh;
-  @include position(absolute, 0 0 6em 50%);
+  @include position(absolute, null null 6em 50%);
   @include size($size);
   background-color: $purple-dark;
   border-radius: $size / 2;
   border: 5px solid $red;
   margin-left: -($size / 2);
+  z-index: 1;
+}
+
+.twitter-post {
+  border: 3px solid;
+  color: $green;
+  background-color: $purple-dark;
+  border-radius: 5px;
+  margin-top: 2em;
+  position: relative;
+  z-index: 2;
+}
+
+.twitter-post__header {
+  padding: 1em;
+  border-bottom: 1px solid;
+}
+
+.twitter-post__message {
+  padding: 1em;
+  max-width: 100%;
+  display: block;
+  border: 0;
+}
+
+.twitter-post__footer {
+  @include clearfix;
+  padding: 1em;
+  border-top: 1px solid;
+  line-height: 2.5em;
+}
+
+.twitter-post__notice {
+  float: left;
+}
+
+.twitter-post__button {
+  float: right;
+  background-color: $green;
+  line-height: 2.5em;
+  color: $purple-dark;
 }
 
 .footer {
-  @include position(absolute, 0 0px 0px 0px);
+  @include position(absolute, null 0 0 0);
   padding: 1em;
   text-align: center;
 }

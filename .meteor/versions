@@ -8,7 +8,6 @@ blaze@2.0.3
 boilerplate-generator@1.0.1
 callback-hook@1.0.1
 check@1.0.2
-ciara:bourbon@3.1.8
 ctl-helper@1.0.4
 ctl@1.0.2
 ddp@1.0.11
@@ -16,7 +15,7 @@ deps@1.0.5
 ejson@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
-fourseven:scss@0.9.5
+fourseven:scss@0.9.6
 geojson-utils@1.0.1
 html-tools@1.0.2
 htmljs@1.0.2
@@ -58,3 +57,4 @@ underscore@1.0.1
 url@1.0.2
 webapp-hashing@1.0.1
 webapp@1.1.4
+wolves:bourbon@0.7.0

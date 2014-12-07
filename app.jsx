@@ -15,13 +15,13 @@ var App = React.createClass({
     return {
       travelTime: moment(earthMarsLatency(), 'minutes').format('m:ss'),
       arrivalTime: moment().add(earthMarsLatency(), 'minutes').calendar(),
-      showTwitterPost: true,
+      showTwitterPost: null,
       inTransit: null
     };
   },
 
   handleTwitterLogin: function() {
-    console.log('click');
+    this.setState({showTwitterPost: !this.state.showTwitterPost});
   },
 
   render: function() {
