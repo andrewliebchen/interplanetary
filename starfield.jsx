@@ -7,7 +7,7 @@ var mediumStarsCount = 50;
 var largeStarsCount = 5;
 
 function randomPos() {
- return Math.floor(Math.random() * (100 - 1)) + 1 + '%';
+ return Math.floor(Math.random() * (150 - 1)) + 1 + '%';
 }
 
 var Star = React.createClass({
@@ -36,8 +36,10 @@ StarField = React.createClass({
     getMeteorState: function() {},
 
     render: function() {
+      var starfieldClassName = !this.props.inTransit ? "starfield" : "starfield in-transit";
+
       return (
-        <div className="starfield">
+        <div className={starfieldClassName} >
           {_(smallStarsCount).times(function(n){
             return(<Star size="small" key={n} />);
           })}

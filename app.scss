@@ -15,6 +15,9 @@ $star-small: 4px;
 $star-medium: 10px;
 $star-large: 18px;
 
+$shadow: 0 0 10px $purple-dark;
+$transit-transition: 0.5s ease-in;
+
 * {
   @include box-sizing(border-box);
 }
@@ -54,6 +57,7 @@ p {
 h1,
 h2 {
   line-height: 1.2;
+  text-shadow: $shadow;
 }
 
 h1 {
@@ -88,7 +92,7 @@ button {
 .headline {
   position: relative;
   text-align: center;
-  z-index: 2;
+  z-index: 12;
 }
 
 .headline__sub {
@@ -116,18 +120,20 @@ button {
   border-radius: $size / 2;
   border: 5px solid $red;
   margin-left: -($size / 2);
-  z-index: 1;
+  z-index: 11;
 }
 
 .twitter-post {
+  @include transition(transform $transit-transition);
   border: 3px solid;
   color: $green;
   background-color: $purple-dark;
   border-radius: 5px;
   position: relative;
-  z-index: 2;
+  z-index: 12;
   width: 600px;
   margin: 2em auto;
+  box-shadow: $shadow;
 
   &.in-transit {
     @include transform(skew(-15deg));
@@ -180,13 +186,11 @@ button {
   @include position(absolute, null 0 0 0);
   padding: 1em;
   text-align: center;
-}
-
-.starfield {
-
+  z-index: 11;
 }
 
 .★ {
+  @include transition(all $transit-transition);
   border: 1px solid $purple-light;
   position: absolute;
   background-color: $purple-dark;
@@ -194,15 +198,38 @@ button {
   &.small {
     @include size($star-small);
     border-radius: $star-small / 2;
+    z-index: 3;
   }
 
   &.medium {
     @include size($star-medium);
     border-radius: $star-medium / 2;
+    z-index: 2;
   }
 
   &.large {
     @include size($star-large);
     border-radius: $star-large / 2;
+    z-index: 1;
+  }
+
+  .in-transit & {
+    &.small {
+      $width: 500px;
+      width: $width;
+      margin-left: -($width);
+    }
+
+    &.medium {
+      $width: 300px;
+      width: $width;
+      margin-left: -($width);
+    }
+
+    &.large {
+      $width: 50px;
+      width: $width;
+      margin-left: -($width);
+    }
   }
 }
