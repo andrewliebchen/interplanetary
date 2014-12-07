@@ -55,6 +55,7 @@ var App = React.createClass({
         <footer className="footer">
           <a>Huh?</a>
         </footer>
+        <StarField />
       </div>
     );
   }
