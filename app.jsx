@@ -13,10 +13,15 @@ var App = React.createClass({
 
   getMeteorState: function() {
     return {
-      travelTime:  moment(earthMarsLatency(), 'minutes').format('m:ss'),
+      travelTime: moment(earthMarsLatency(), 'minutes').format('m:ss'),
       arrivalTime: moment().add(earthMarsLatency(), 'minutes').calendar(),
-      inTransit:   null
+      showTwitterPost: true,
+      inTransit: null
     };
+  },
+
+  handleTwitterLogin: function() {
+    console.log('click');
   },
 
   render: function() {
@@ -24,17 +29,44 @@ var App = React.createClass({
       <div className="wrapper">
         <div className="headline">
           <h1 classNam="headline__main">Tweet from Mars</h1>
-          <div className="headline__sub">
-            <h2>Currently it takes {this.state.travelTime} for a message to travel between Mars and the Earth.</h2>
-            <h2>If you send your tweet now, it will be posted on Twitter {this.state.arrivalTime}</h2>
-          </div>
-          <button className="headline__button">Log in with Twitter</button>
+          {!this.state.showTwitterPost ?
+            <div>
+              <div className="headline__sub">
+                <h2>Currently it takes {this.state.travelTime} for a message to travel between Mars and the Earth.</h2>
+                <h2>If you send your tweet now, it will be posted on Twitter {this.state.arrivalTime}</h2>
+              </div>
+              <button className="headline__button" onClick={this.handleTwitterLogin}>Log in with Twitter</button>
+            </div>
+          : null}
         </div>
+        {this.state.showTwitterPost ?
+          <TwitterPost arrivalTime={this.state.arrivalTime} />
+        : null}
         {!this.state.inTransit ?
           <div className="mars" />
         : null}
         <footer className="footer">
           <a>Huh?</a>
+        </footer>
+      </div>
+    );
+  }
+});
+
+var TwitterPost = React.createClass({
+  render: function() {
+    return (
+      <div className="twitter-post">
+        <header className="twitter-post__header">
+          <h3>What's happening on Mars @andrewliebchen?</h3>
+        </header>
+        <textarea className="twitter-post__message"
+          defaultValue="This tweet was sent from Mars 15 minutes ago! #TweetFromMars" />
+        <footer className="twitter-post__footer">
+          <p className="twitter-post__notice">Your Tweet will be posted at {this.props.arrivalTime}</p>
+          <button className="twitter-post__button">
+            Transmit!
+          </button>
         </footer>
       </div>
     );
