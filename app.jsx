@@ -2,9 +2,11 @@
  * @jsx React.DOM
  */
 
+Messages = new Meteor.Collection('messages');
+
 var testLatency = 5000;
 
-Messages = new Meteor.Collection('messages');
+// var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var App = React.createClass({
   mixins: [Meteor.Mixin],
@@ -27,7 +29,9 @@ var App = React.createClass({
           </div>
           <button className="headline__button">Log in with Twitter</button>
         </div>
-        <div className="mars" />
+        <CSSTransitionGroup transitionName="mars">
+          <div className="mars" />
+        </CSSTransitionGroup>
         <footer className="footer">
           <a>Huh?</a>
         </footer>

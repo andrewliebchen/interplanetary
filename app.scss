@@ -72,3 +72,17 @@ button {
     color: $purple-dark;
   }
 }
+
+.mars {
+  @include size(300px);
+  background-color: $red;
+}
+
+.mars-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.mars-enter.mars-enter-active {
+  opacity: 1;
+}
